@@ -8,16 +8,17 @@
 
 
 library(stats)
+trial <- 100
 
-arr <- array(0,10)
-for (i in 1:10){
-  arr[i] <- if (runif(1) < 0.1) 1 else 0
+draw_lottery <- function(flip = 10, cutoff = 0.1){
+  draws <- array(0, flip)
+  for (i in 1:flip){
+    arr[i] <- if (runif(1) < cutoff) 1 else 0
+  }
+  return(draws)
 }
 
-for (j in 1:100){
-  arr <- array(0,10)
-  for (i in 1:10){
-    arr[i] <- if (runif(1) < 0.1) 1 else 0
-  }
-  print(arr)
+for (j in 1:trial){
+  draws <- draw_lottery()
+  print(draws)
 }
